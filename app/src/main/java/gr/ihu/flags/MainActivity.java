@@ -21,12 +21,12 @@ import gr.ihu.flags.model.photo;
 public class MainActivity extends AppCompatActivity {
 
     List<photo> photoList = Arrays.asList(
-            new photo("Algeria", R.drawable.algeria),
-            new photo("Belgium", R.drawable.belgium),
-            new photo("China", R.drawable.china),
-            new photo("Cyprus", R.drawable.cyprus),
-            new photo("Egypt", R.drawable.egypt),
-            new photo("Portugal", R.drawable.portugal)
+            new photo("Algeria", R.drawable.algeria,"Africa"),
+            new photo("Belgium", R.drawable.belgium, "Europe"),
+            new photo("China", R.drawable.china, "Asia"),
+            new photo("Cyprus", R.drawable.cyprus, "Europe"),
+            new photo("Egypt", R.drawable.egypt, "Africa"),
+            new photo("Portugal", R.drawable.portugal, "Europe")
 
     );
     @Override
