@@ -34,9 +34,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        RecyclerView recyclerView = findViewById(R.id.photorecyclerview);
+        RecyclerView recyclerView = findViewById(R.id.photorecycler);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(LinearLayoutManager);
+        recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
         photorecycleradapter photorecycleradapter = new photorecycleradapter(photoList, findViewById(R.id.imageView));
         recyclerView.setAdapter(photorecycleradapter);

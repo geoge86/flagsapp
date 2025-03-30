@@ -19,27 +19,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/portugal" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="283dp"
-        android:onClick="onclickhandler"
-        android:text="OK"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/hellomessage"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/hellomessage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Flags"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="16dp" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/photorecycler"
         android:layout_width="409dp"
         android:layout_height="365dp"
         tools:layout_editor_absoluteX="1dp"
