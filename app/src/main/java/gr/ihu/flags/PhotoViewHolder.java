@@ -6,11 +6,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class fotoviewholder extends RecyclerView.ViewHolder {
+public class PhotoViewHolder extends RecyclerView.ViewHolder {
     TextView flagcountry;
+    TextView flagcontinent;
 
-    public fotoviewholder(@NonNull View itemView) {
+
+    public PhotoViewHolder(@NonNull View itemView) {
         super(itemView);
         flagcountry=itemView.findViewById(R.id.countryflag);
+        flagcontinent = itemView.findViewById(R.id.continentflag);
     }
 }

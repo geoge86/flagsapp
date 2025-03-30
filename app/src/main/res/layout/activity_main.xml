@@ -24,6 +24,7 @@
         android:id="@+id/photorecycler"
         android:layout_width="409dp"
         android:layout_height="365dp"
+        android:layout_weight="4.0"
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="49dp" />
 

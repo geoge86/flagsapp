@@ -3,7 +3,6 @@ package gr.ihu.flags;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -38,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
-        photorecycleradapter photorecycleradapter = new photorecycleradapter(photoList, findViewById(R.id.imageView));
+        PhotoRecyclerAdapter photorecycleradapter = new PhotoRecyclerAdapter(photoList, findViewById(R.id.imageView));
         recyclerView.setAdapter(photorecycleradapter);
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
