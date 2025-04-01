@@ -1,14 +1,18 @@
 package gr.ihu.flags.model;
 
-public class photo {
+import java.io.Serializable;
+
+
+
+public class Photo implements Serializable {
     private String name;
     private int id;
 
     private String continent;
 
-    public photo( String name,int id, String continent ) {
-        this.id = id;
+    public Photo(String name, int id, String continent) {
         this.name = name;
+        this.id = id;
         this.continent = continent;
     }
 
@@ -16,10 +20,12 @@ public class photo {
         return name;
     }
 
-    public String getContinent() {
-        return continent;
-    }
     public int getId() {
         return id;
     }
+
+    public String getContinent() {
+        return continent;
+    }
 }
+
