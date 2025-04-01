@@ -43,9 +43,9 @@ public class PhotoRecyclerAdapter extends RecyclerView.Adapter<PhotoViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull PhotoViewHolder holder, int position) {
         Photo photo = photoList.get(position);
-        TextView  textView = holder.animalName;
+        TextView  textView = holder.flagcountry;
         textView.setText(photo.getName());
-        TextView shortDescription = holder.shortDescription;
+        TextView shortDescription = holder.flagcontinent;
         shortDescription.setText(photo.getContinent());
         textView.setOnClickListener(view -> {
             updateImageView(holder.getAdapterPosition(), photo);

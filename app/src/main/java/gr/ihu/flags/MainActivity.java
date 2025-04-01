@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView.setHasFixedSize(true);
         PhotoRecyclerAdapter photoRecyclerAdapter = new PhotoRecyclerAdapter(photoList,
-                findViewById(R.id.helloMessage));
+                findViewById(R.id.flagimage));
         recyclerView.setAdapter(photoRecyclerAdapter);
 
 

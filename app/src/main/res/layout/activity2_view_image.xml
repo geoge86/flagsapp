@@ -8,34 +8,34 @@
     tools:context=".ViewPhotoActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/activityflagcountry"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Some title"
+        android:text="Country"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"/>
+        app:layout_constraintBottom_toTopOf="@+id/activityflagimage"/>
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/activityflagimage"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/algeria"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/activityflagcountry"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/descriptionView"/>
+        app:layout_constraintBottom_toTopOf="@+id/activityflagcontinent"/>
 
     <TextView
-        android:id="@+id/descriptionView"
+        android:id="@+id/activityflagcontinent"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="3"
-        android:text="Some description of the animal"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        android:text="Continent"
+        app:layout_constraintTop_toBottomOf="@+id/activityflagimage"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>

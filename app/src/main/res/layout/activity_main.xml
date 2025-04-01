@@ -16,14 +16,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/helloMessage" />
+        app:layout_constraintBottom_toTopOf="@+id/flagimage" />
 
     <ImageView
-        android:id="@+id/helloMessage"
+        android:id="@+id/flagimage"
         android:layout_height="0dp"
         android:layout_width="match_parent"
         android:adjustViewBounds="true"
-        android:layout_weight="3.0"
+        android:layout_weight="4.0"
         android:contentDescription=""
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

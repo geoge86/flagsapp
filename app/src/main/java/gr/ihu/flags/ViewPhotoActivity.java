@@ -19,16 +19,17 @@ public class ViewPhotoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_view_photo);
+        setContentView(R.layout.activity2_view_image);
 
         Intent intent = getIntent();
         if (intent!=null) {
             Photo photo = (Photo) intent.getSerializableExtra("photo");
             //
-            ImageView imageView = findViewById(R.id.imageView);
+            ImageView imageView = findViewById(R.id.activityflagimage);
             imageView.setImageResource(photo.getId());
-            TextView textView = findViewById(R.id.descriptionView);
+            TextView textView = findViewById(R.id.activityflagcontinent);
             textView.setText(photo.getContinent());
+
         }
 
 
