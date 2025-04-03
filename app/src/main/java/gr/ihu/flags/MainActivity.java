@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -20,14 +21,6 @@ import gr.ihu.flags.model.Photo;
 
 public class MainActivity extends AppCompatActivity {
 
-    List<Photo> photoList = Arrays.asList(
-            new Photo("Algeria", R.drawable.algeria,"Africa"),
-            new Photo("Belgium", R.drawable.belgium, "Europe"),
-            new Photo("China", R.drawable.china, "Asia"),
-            new Photo("Cyprus", R.drawable.cyprus, "Europe"),
-            new Photo("Egypt", R.drawable.egypt, "Africa"),
-            new Photo("Portugal", R.drawable.portugal, "Europe")
-    );
     RecyclerView recyclerView;
 
     @Override
@@ -41,10 +34,13 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(linearLayoutManager);
 
         recyclerView.setHasFixedSize(true);
-        PhotoRecyclerAdapter photoRecyclerAdapter = new PhotoRecyclerAdapter(photoList,
-                findViewById(R.id.flagimage));
-        recyclerView.setAdapter(photoRecyclerAdapter);
 
+        MainViewModel model = new ViewModelProvider(this).get(MainViewModel.class);
+        model.getPhotos().observe(this, photoList-> {
+            PhotoRecyclerAdapter photoRecyclerAdapter = new PhotoRecyclerAdapter(photoList,
+                    findViewById(R.id.flagimage));
+            recyclerView.setAdapter(photoRecyclerAdapter);
+        });
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
