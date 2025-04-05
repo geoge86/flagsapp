@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 import gr.ihu.flags.model.Photo;
 
@@ -52,8 +53,10 @@ public class MainActivity extends AppCompatActivity {
             Parcelable savedReviewerState = savedInstanceState.getParcelable("recycler_state");
             PhotoRecyclerAdapter adapter = (PhotoRecyclerAdapter)recyclerView.getAdapter();
             int lastClickedPosition = savedInstanceState.getInt("last_position_clicked");
-            recyclerView.getLayoutManager().onRestoreInstanceState(savedReviewerState);
-            adapter.setLastClickedPosition(lastClickedPosition);
+            Objects.requireNonNull(recyclerView.getLayoutManager()).onRestoreInstanceState(savedReviewerState);
+            if (adapter!=null) {
+                adapter.setLastClickedPosition(lastClickedPosition);
+            }
 
         } else {
             recyclerView.scrollToPosition(0);

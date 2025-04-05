@@ -46,7 +46,7 @@ public class PhotoRecyclerAdapter extends RecyclerView.Adapter<PhotoViewHolder> 
         TextView  textView = holder.flagcountry;
         textView.setText(photo.getName());
         TextView shortDescription = holder.flagcontinent;
-        shortDescription.setText(photo.getContinent());
+        shortDescription.setText(photo.getType());
         textView.setOnClickListener(view -> {
             updateImageView(holder.getAdapterPosition(), photo);
         });

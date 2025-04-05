@@ -28,7 +28,7 @@ public class ViewPhotoActivity extends AppCompatActivity {
             ImageView imageView = findViewById(R.id.activityflagimage);
             imageView.setImageResource(photo.getId());
             TextView textView = findViewById(R.id.activityflagcontinent);
-            textView.setText(photo.getContinent());
+            textView.setText(photo.getType());
             TextView textView2 = findViewById(R.id.activityflagcountry);
             textView2.setText(photo.getName());
 

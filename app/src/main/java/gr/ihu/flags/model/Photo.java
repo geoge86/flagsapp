@@ -8,12 +8,12 @@ public class Photo implements Serializable {
     private String name;
     private int id;
 
-    private String continent;
+    private String type;
 
-    public Photo(String name, int id, String continent) {
+    public Photo(String name, int id, String type) {
         this.name = name;
         this.id = id;
-        this.continent = continent;
+        this.type = type;
     }
 
     public String getName() {
@@ -24,8 +24,8 @@ public class Photo implements Serializable {
         return id;
     }
 
-    public String getContinent() {
-        return continent;
+    public String getType() {
+        return type;
     }
 }
 
