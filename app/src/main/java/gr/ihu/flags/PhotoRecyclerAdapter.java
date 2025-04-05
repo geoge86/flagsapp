@@ -2,6 +2,8 @@ package gr.ihu.flags;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,7 +56,11 @@ public class PhotoRecyclerAdapter extends RecyclerView.Adapter<PhotoViewHolder> 
 
     private void updateImageView(int lastClickedPosition, Photo photo) {
         this.lastClickedPosition = lastClickedPosition;
-        imageView.setImageResource(photo.getId());
+
+        Bitmap bitmap = BitmapFactory.decodeByteArray(photo.getData(), 0, photo.getData().length);
+        imageView.setImageBitmap(bitmap);
+
+
         imageView.setOnClickListener(v-> {
             Intent intent = new Intent(context,ViewPhotoActivity.class);
             intent.putExtra("photo", photo);
