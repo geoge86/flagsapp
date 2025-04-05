@@ -17,8 +17,7 @@ public class MainViewModel extends ViewModel {
     public LiveData<List<Photo>> getPhotos() {
        if (photoList == null) {
            this.photoList = new MutableLiveData<>();
-           this.photoList = photoApiClient.getAllPhotos();
-           // this.photoList = photoApiClient.getAllPhotos(photolist);
+           this.photoList = photoApiClient.getAllPhotos(photoList);
     }
            return this.photoList;
     }

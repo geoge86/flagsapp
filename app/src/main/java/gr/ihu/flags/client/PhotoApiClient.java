@@ -10,8 +10,8 @@ import gr.ihu.flags.model.Photo;
 
 public class PhotoApiClient {
 
-public MutableLiveData<List<Photo>> getAllPhotos(){
-    MutableLiveData<List< Photo>> photoList= new MutableLiveData<>();
+public MutableLiveData<List<Photo>> getAllPhotos(MutableLiveData<List<Photo>> photoList){
+
     photoList.postValue(Arrays.asList(
             new Photo("Algeria", R.drawable.algeria,"Africa"),
             new Photo("Belgium", R.drawable.belgium, "Europe"),

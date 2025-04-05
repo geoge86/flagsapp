@@ -56,7 +56,6 @@ public class PhotoRecyclerAdapter extends RecyclerView.Adapter<PhotoViewHolder> 
         this.lastClickedPosition = lastClickedPosition;
         imageView.setImageResource(photo.getId());
         imageView.setOnClickListener(v-> {
-            //Create a new activity showing info about the animal of the picture
             Intent intent = new Intent(context,ViewPhotoActivity.class);
             intent.putExtra("photo", photo);
             context.startActivity(intent);
