@@ -1,5 +1,7 @@
 package gr.ihu.flags.client;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
 
@@ -9,6 +11,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import gr.ihu.flags.CreateViewModel;
 import gr.ihu.flags.R;
 import gr.ihu.flags.model.Photo;
 import retrofit2.Call;
@@ -48,5 +51,24 @@ public void getAllPhotos(MutableLiveData<List<Photo>> photoList) {
     });
 }
 
+    public void addPhoto(CreateViewModel viewModel, Photo photo) {
+        Call<Photo> addPhotoCall = photoApi.addPhoto(photo);
+
+        addPhotoCall.enqueue(new Callback<Photo>() {
+            @Override
+            public void onResponse(Call<Photo> call, Response<Photo> response) {
+                if (response.body()!=null) {
+                    viewModel.updateFromRest(photo);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Photo> call, Throwable throwable) {
+                Log.e("REST Client",
+                        "Tried to post photo but got back:" + throwable.getLocalizedMessage());
+                viewModel.FailedFromRest(throwable.getLocalizedMessage());
+            }
+        });
+    }
 
 }

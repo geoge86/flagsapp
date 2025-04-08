@@ -1,11 +1,14 @@
 package gr.ihu.flags;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.result.ActivityResultLauncher;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -23,6 +26,8 @@ import gr.ihu.flags.model.Photo;
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
+
+    private ActivityResultLauncher<Intent> activityLauncher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,5 +109,10 @@ public class MainActivity extends AppCompatActivity {
             outState.putParcelable("recycler_state", my_layout_state);
             outState.putInt("last_position_clicked",adapter.getLastClickedPosition());
         }
+    }
+
+    public void onCreateButton(View view) {
+        Intent intent = new Intent(this,CreateActivity.class);
+        activityLauncher.launch(intent);
     }
 }
