@@ -22,4 +22,8 @@ public class MainViewModel extends ViewModel {
            return this.photoList;
     }
 
+    public LiveData<List<Photo>> updatePhotos() {
+        photoApiClient.getAllPhotos(photoList);
+        return this.photoList;
+    }
 }

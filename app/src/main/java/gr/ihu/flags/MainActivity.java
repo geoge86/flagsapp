@@ -1,5 +1,6 @@
 package gr.ihu.flags;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -9,6 +10,8 @@ import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -66,6 +69,14 @@ public class MainActivity extends AppCompatActivity {
         } else {
             recyclerView.scrollToPosition(0);
         }
+        activityLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if (result.getResultCode() == Activity.RESULT_OK) {
+                        model.updatePhotos();
+                    }
+                }
+        );
         Log.d("MainActivity","I am onCreate");
     }
 

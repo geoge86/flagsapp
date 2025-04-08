@@ -12,7 +12,6 @@ import java.util.Collections;
 import java.util.List;
 
 import gr.ihu.flags.CreateViewModel;
-import gr.ihu.flags.R;
 import gr.ihu.flags.model.Photo;
 import retrofit2.Call;
 import retrofit2.Callback;
