@@ -82,6 +82,7 @@ public class CreateActivity extends AppCompatActivity {
         // You can do the assignment inside onAttach or onCreate, i.e, before the activity is displayed
         EditText textView = findViewById(R.id.nameCreateTextView);
         ImageView imageView = findViewById(R.id.imageCreateView);
+        //EditText descriptionEditText = findViewById(R.id.descriptionCreateTextView);
 
         if (!(imageView.getDrawable() instanceof BitmapDrawable)) {
             Toast.makeText(this, "Please take a picture and give a name", Toast.LENGTH_SHORT).show();

@@ -28,9 +28,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageCreateView"
-        app:layout_constraintBottom_toTopOf="@+id/cameraButton"
+        app:layout_constraintBottom_toTopOf="@+id/descriptionCreateTextView"
         />
 
+    <EditText
+        android:id="@+id/descriptionCreateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        tools:layout_editor_absoluteX="93dp"
+        tools:layout_editor_absoluteY="438dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameCreateTextView"
+        app:layout_constraintBottom_toTopOf="@+id/cameraButton"
+        />
 
     <Button
         android:id="@+id/cameraButton"
@@ -57,5 +71,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
 
         />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
