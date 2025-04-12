@@ -29,8 +29,9 @@ import gr.ihu.flags.model.Photo;
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
-
     private ActivityResultLauncher<Intent> activityLauncher;
+
+    private String filterSelection = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,11 +44,17 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(linearLayoutManager);
 
         recyclerView.setHasFixedSize(true);
+        if (savedInstanceState==null) {
+            Intent intent = getIntent();
+            filterSelection = intent.getStringExtra("filter");
+        } else {
+            filterSelection = savedInstanceState.getString("filter");
+        }
 
         MainViewModel model = new ViewModelProvider(this).get(MainViewModel.class);
-        model.getPhotos().observe(this, photoList-> {
+        model.getPhotos(filterSelection).observe(this, photoList-> {
             PhotoRecyclerAdapter photoRecyclerAdapter = new PhotoRecyclerAdapter(photoList,
-                    findViewById(R.id.flagimage));
+                    findViewById(R.id.helloMessage));
             recyclerView.setAdapter(photoRecyclerAdapter);
         });
 
@@ -57,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
         if (savedInstanceState!=null) {
-            Log.d("MainActivity","Hey I am recovering from destroy!");
+            Log.d("MainActivity","Hey I am recovering from destroy! I have saved info here");
             Parcelable savedReviewerState = savedInstanceState.getParcelable("recycler_state");
             PhotoRecyclerAdapter adapter = (PhotoRecyclerAdapter)recyclerView.getAdapter();
             int lastClickedPosition = savedInstanceState.getInt("last_position_clicked");
@@ -110,15 +117,18 @@ public class MainActivity extends AppCompatActivity {
         Log.d("MainActivity","I am onPause");
     }
 
+
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         Log.d("MainActivity", "I am onSaveInstanceState");
         if (recyclerView !=null ){
-            Parcelable my_layout_state = recyclerView.getLayoutManager().onSaveInstanceState();
+            Parcelable my_layout_state = Objects.requireNonNull(recyclerView.getLayoutManager()).onSaveInstanceState();
             PhotoRecyclerAdapter adapter = (PhotoRecyclerAdapter)recyclerView.getAdapter();
             outState.putParcelable("recycler_state", my_layout_state);
-            outState.putInt("last_position_clicked",adapter.getLastClickedPosition());
+            if (adapter!=null) {
+                outState.putInt("last_position_clicked", adapter.getLastClickedPosition());
+            }
         }
     }
 

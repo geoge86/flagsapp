@@ -1,6 +1,15 @@
 <resources>
     <string name="app_name">flags</string>
-    <string name="country_name">country name</string>
-    <string name="country_continent">country continent</string>
-    <string name="country">Country</string>
+    <string name="ok_button">OK</string>
+    <string name="image_caption">A giraffe</string>
+    <string name="picture_of_an_animal">Picture of an animal</string>
+    <string name="title_of_entry">Title of entry</string>
+    <string name="some_description_of_the_animal">Some description of the animal</string>
+    <string name="some_animal_name">Some animal name</string>
+    <string name="some_description">Some description</string>
+    <string-array name="animal_categories">
+        <item>Mammal</item>
+        <item>Bird</item>
+        <item>Bug</item>
+    </string-array>
 </resources>

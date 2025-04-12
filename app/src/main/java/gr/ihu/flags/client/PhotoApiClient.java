@@ -22,33 +22,35 @@ import retrofit2.converter.jackson.JacksonConverterFactory;
 public class PhotoApiClient {
 
     private static final String BASE_URL="http://10.0.2.2:9000";
-
     private final PhotoApi photoApi;
+
     public PhotoApiClient() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
-                .addConverterFactory(JacksonConverterFactory.create(new ObjectMapper()
-               )).build();
+                .addConverterFactory(JacksonConverterFactory.create(
+                        new ObjectMapper()
+                )).build();
 
         photoApi = retrofit.create(PhotoApi.class);
+
     }
-public void getAllPhotos(MutableLiveData<List<Photo>> photoList) {
-    Call<List<Photo>> allPhotos = photoApi.getAllPhotos();
+    public void getAllPhotos( MutableLiveData<List<Photo>> photoList) {
+        Call<List<Photo>> allPhotos = photoApi.getAllPhotos();
 
-    allPhotos.enqueue(new Callback<List<Photo>>() {
-        @Override
-        public void onResponse(@NonNull Call<List<Photo>> call, @NonNull Response<List<Photo>> response) {
-            if (response.body() != null) {
-                photoList.postValue(response.body());
+        allPhotos.enqueue(new Callback<List<Photo>>() {
+            @Override
+            public void onResponse(@NonNull Call<List<Photo>> call, @NonNull Response<List<Photo>> response) {
+                if (response.body()!=null) {
+                    photoList.postValue(response.body());
+                }
             }
-        }
 
-        @Override
-        public void onFailure(@NonNull Call<List<Photo>> call, @NonNull Throwable throwable) {
-            photoList.postValue(Collections.emptyList());
-        }
-    });
-}
+            @Override
+            public void onFailure(@NonNull Call<List<Photo>> call, @NonNull Throwable throwable) {
+                photoList.postValue(Collections.emptyList());
+            }
+        });
+    }
 
     public void addPhoto(CreateViewModel viewModel, Photo photo) {
         Call<Photo> addPhotoCall = photoApi.addPhoto(photo);
@@ -69,5 +71,25 @@ public void getAllPhotos(MutableLiveData<List<Photo>> photoList) {
             }
         });
     }
+    public MutableLiveData<List<Photo>> getFilteredPhotos(String filterSelection, MutableLiveData<List<Photo>> photoList) {
 
+        Call<List<Photo>> call = photoApi.findByType(filterSelection);
+
+        call.enqueue(new Callback<List<Photo>>() {
+            @Override
+            public void onResponse(Call<List<Photo>> call, Response<List<Photo>> response) {
+                if (response.body() != null) {
+                    photoList.postValue(response.body());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Photo>> call, Throwable t) {
+                Log.e("REST Client",
+                        "Tried to get all photos{}. Got back " + t.getLocalizedMessage());
+                photoList.postValue(Collections.emptyList());
+            }
+        });
+        return photoList;
+    }
 }

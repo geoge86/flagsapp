@@ -12,32 +12,35 @@
         android:id="@+id/photoRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_weight="1.0"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/flagimage" />
+        app:layout_constraintBottom_toTopOf="@+id/helloMessage" />
 
     <ImageView
-        android:id="@+id/flagimage"
+        android:id="@+id/helloMessage"
         android:layout_height="0dp"
         android:layout_width="match_parent"
         android:adjustViewBounds="true"
-        android:contentDescription="country"
+        android:layout_weight="3.0"
+        android:contentDescription="@string/image_caption"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/photoRecyclerView"
         app:layout_constraintBottom_toTopOf="@+id/addPhotoButton"
-         />
+        app:srcCompat="@drawable/algeria" />
 
     <Button
         android:id="@+id/addPhotoButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="onCreateButton"
-        android:text="Add flag"
+        android:text="Add animal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/flagimage"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/helloMessage" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

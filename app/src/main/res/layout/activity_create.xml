@@ -7,70 +7,70 @@
     android:layout_height="match_parent"
     tools:context="gr.ihu.flags.CreateActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:id="@+id/topPanel"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Button
+            android:id="@+id/takePhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:onClick="onCameraCapture"
+            android:text="Take photo"
+            style="?android:attr/buttonBarButtonStyle" />
+        <Button
+            android:id="@+id/viewGallery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:onClick="onViewGallery"
+            android:text="View Gallery"
+            style="?android:attr/buttonBarButtonStyle" />
+    </LinearLayout>
+
     <ImageView
         android:id="@+id/imageCreateView"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:contentDescription="Animal Photo"
-        android:scaleType="centerCrop"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="0dp"
+        android:contentDescription="Picture of an animal here"
         app:layout_constraintBottom_toTopOf="@+id/nameCreateTextView"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topPanel"
+        android:scaleType="fitCenter"
+
+        app:srcCompat="@drawable/algeria" />
 
     <EditText
         android:id="@+id/nameCreateTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Name"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageCreateView"
-        app:layout_constraintBottom_toTopOf="@+id/descriptionCreateTextView"
-        />
-
-    <EditText
-        android:id="@+id/descriptionCreateTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:gravity="start|top"
-        android:inputType="textMultiLine"
-        tools:layout_editor_absoluteX="93dp"
-        tools:layout_editor_absoluteY="438dp"
+        android:layout_marginBottom="16dp"
+        android:hint="The name of the animal"
+        android:inputType="textShortMessage"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/addPhotoButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameCreateTextView"
-        app:layout_constraintBottom_toTopOf="@+id/cameraButton"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/imageCreateView" />
 
     <Button
-        android:id="@+id/cameraButton"
+        android:id="@+id/addPhotoButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="onCameraCapture"
-        android:text="Take Photo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameCreateTextView"
-        app:layout_constraintBottom_toTopOf="@+id/addButton"
-
-        />
-
-    <Button
-        android:id="@+id/addButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:onClick="onAddButton"
-        android:text="Add Entry"
+        android:text="Add"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cameraButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-
-        />
-
+        app:layout_constraintTop_toBottomOf="@+id/nameCreateTextView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

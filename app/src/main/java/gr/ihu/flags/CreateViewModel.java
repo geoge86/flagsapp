@@ -7,8 +7,6 @@ import androidx.lifecycle.ViewModel;
 import gr.ihu.flags.client.PhotoApiClient;
 import gr.ihu.flags.model.Photo;
 
-
-
 public class CreateViewModel extends ViewModel {
     private MutableLiveData<Photo> photoMutableLiveData = new MutableLiveData<>();
     private MutableLiveData<String> errorMessages = new MutableLiveData<>();
