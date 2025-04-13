@@ -13,7 +13,7 @@ public class PhotoViewHolder extends RecyclerView.ViewHolder {
     TextView shortDescription;
     public PhotoViewHolder(@NonNull View itemView) {
         super(itemView);
-        animalName = itemView.findViewById(R.id.animalName);
+        animalName = itemView.findViewById(R.id.CountryName);
         shortDescription = itemView.findViewById(R.id.textView2);
     }
 }

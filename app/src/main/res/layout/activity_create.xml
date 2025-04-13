@@ -46,7 +46,7 @@
         app:layout_constraintTop_toBottomOf="@+id/topPanel"
         android:scaleType="fitCenter"
 
-        app:srcCompat="@drawable/algeria" />
+         />
 
     <EditText
         android:id="@+id/nameCreateTextView"

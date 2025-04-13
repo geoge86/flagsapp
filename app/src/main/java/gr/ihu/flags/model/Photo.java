@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 
 public class Photo implements Serializable {
     private String name;
-    private String type = "mammal";
+    private String type = "Europe";
 
     private String filename;
 

@@ -12,7 +12,7 @@ public class BitmapUtil {
         try (ByteArrayOutputStream stream = new ByteArrayOutputStream()) {
             bmp.compress(Bitmap.CompressFormat.JPEG, 100, stream);
             byte[] byteArray = stream.toByteArray();
-            //  bmp.recycle();
+
             return byteArray;
         } catch (IOException e) {
             Log.e(BitmapUtil.class.getName(),e.getLocalizedMessage());
