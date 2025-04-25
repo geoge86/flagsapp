@@ -37,6 +37,8 @@ public class ViewPhotoActivity extends AppCompatActivity {
                 TextView textView = findViewById(R.id.descriptionView);
                 textView.setText(photo.getDescription());
                 TextView youtubeLink = findViewById(R.id.youtubeLink);
+                TextView textView1 = findViewById(R.id.textView1);
+                textView1.setText(photo.getName());
                 if (!photo.getUrl().isEmpty()) {
                     youtubeLink.setText("Watch on YouTube");
                     youtubeLink.setTextColor(Color.BLUE);

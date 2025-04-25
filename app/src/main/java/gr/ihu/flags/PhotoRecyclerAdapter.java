@@ -46,7 +46,7 @@ public class PhotoRecyclerAdapter extends RecyclerView.Adapter<PhotoViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull PhotoViewHolder holder, int position) {
         Photo photo = photoList.get(position);
-        TextView  textView = holder.animalName;
+        TextView  textView = holder.CountryName;
         textView.setText(photo.getName());
         TextView shortDescription = holder.shortDescription;
         shortDescription.setText(photo.getDescription().substring(0,4));

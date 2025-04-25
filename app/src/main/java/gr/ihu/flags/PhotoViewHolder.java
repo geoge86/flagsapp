@@ -9,11 +9,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class PhotoViewHolder extends RecyclerView.ViewHolder {
 
-    TextView animalName;
+    TextView CountryName;
     TextView shortDescription;
     public PhotoViewHolder(@NonNull View itemView) {
         super(itemView);
-        animalName = itemView.findViewById(R.id.CountryName);
+        CountryName = itemView.findViewById(R.id.CountryName);
         shortDescription = itemView.findViewById(R.id.textView2);
     }
 }
